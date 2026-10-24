@@ -1,0 +1,30 @@
+{
+  "name": "nejat-bede-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test.mjs",
+    "test:integration": "node test.integration.mjs",
+    "prepare:staging": "node scripts/prepare-staging.mjs",
+    "prepare:production": "node scripts/prepare-production.mjs",
+    "deploy:production": "node scripts/deploy-production.mjs",
+    "preflight:production": "node scripts/preflight-production.mjs",
+    "deploy:staging": "node scripts/deploy-staging.mjs",
+    "verify:migrations": "node scripts/verify-migrations.mjs",
+    "verify:release": "node scripts/verify-release.mjs",
+    "verify:artifact": "node scripts/verify-artifact.mjs",
+    "release:manifest": "node scripts/create-release-manifest.mjs",
+    "verify:manifest": "node scripts/verify-manifest.mjs",
+    "verify:reproducibility": "node scripts/verify-reproducibility.mjs",
+    "release:check": "node test.mjs && node test.integration.mjs && node scripts/verify-environment.mjs && node scripts/verify-secrets.mjs && node scripts/verify-migrations.mjs && node scripts/verify-release.mjs && node scripts/create-release-manifest.mjs && node scripts/verify-manifest.mjs && node scripts/verify-reproducibility.mjs && ARTIFACT_CHECK_ALLOW_MANIFEST=1 node scripts/verify-artifact.mjs",
+    "verify:environment": "node scripts/verify-environment.mjs",
+    "verify:secrets": "node scripts/verify-secrets.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "version": "0.0.211",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,19 @@
+name = "nejat-bede"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[triggers]
+crons = ["0 3 * * *"]
+
+# v131 — Production D1 binding: replace DATABASE_ID_BEFORE_DEPLOY with the real Cloudflare D1 database ID.
+# Keep this binding disabled until the real ID exists; the Worker deliberately returns
+# database_not_configured instead of pretending a database is available.
+[[d1_databases]]
+binding = "DB"
+database_name = "nejat-bede-2026"
+database_id = "8ccd4ad8-291d-4efd-9308-3bc3156cdc26"
+
+[assets]
+directory = "../public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
