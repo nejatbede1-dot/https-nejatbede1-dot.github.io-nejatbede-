@@ -1,0 +1,16 @@
+name: Check Staging Migrations
+on:
+  workflow_dispatch:
+jobs:
+  check-migrations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Check pending migrations (Read Only)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          wranglerVersion: "3.90.0"
+          workingDirectory: worker
+          command: d1 migrations list nejat-bede-staging-2026 --config wrangler.staging.toml --remote
