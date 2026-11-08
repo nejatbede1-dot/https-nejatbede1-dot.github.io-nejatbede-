@@ -1,0 +1,14 @@
+name = "nejat-bede-staging"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nejat-bede-staging-2026"
+database_id = "8114bd77-7cea-4dbf-8870-7f5a9d21589f"
+migrations_dir = "../migrations"
+
+[assets]
+directory = "../public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]

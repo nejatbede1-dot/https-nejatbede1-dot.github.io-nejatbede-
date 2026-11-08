@@ -1,4 +1,4 @@
-name = "nejat-bede-api"
+name = "nejat-bede"
 main = "index.js"
 compatibility_date = "2026-10-01"
 
@@ -9,5 +9,5 @@ ALLOWED_ORIGINS = "https://nejat-bede.nejatbede1.workers.dev"
 [[d1_databases]]
 binding = "DB"
 database_name = "nejat-bede"
-database_id = "8ccd4ad8-291d-4efd-9308-3bc3156cdc26"
+database_id = "82e98eeb-2e2f-4fc8-87ff-0cea7664e5dc"
 migrations_dir = "../migrations"

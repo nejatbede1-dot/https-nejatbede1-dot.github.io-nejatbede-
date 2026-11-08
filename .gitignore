@@ -1,0 +1,29 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/
+
+# Dependencies and local artifacts
+node_modules/
+.DS_Store
+
+# Test database
+social-media-test.db
+
+# Backup files
+*.backup
+*.before-*
+*.pre-P005
+
+# Accidental files
+-files
+how\ --format=*
+ssh-keygen*
+tatus\ --short
+
+# Deployment backup
+.github/workflows/deploy.yml.backup
+P005-final-review.txt
