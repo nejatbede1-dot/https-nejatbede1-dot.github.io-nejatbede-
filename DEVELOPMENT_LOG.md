@@ -67,3 +67,23 @@
 - Deploy واقعی: اجرا نشده
 - Migration واقعی: اجرا نشده
 - وضعیت: بسته و تأییدشده
+
+---
+
+## پرونده P-009: بهینه‌سازی Workflow تشخیصی Secretها
+
+- شناسه پرونده: P-009
+- عنوان: بهینه‌سازی diagnose-cloudflare-secret.yml با تابع مشترک
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- فایل تغییرکرده: .github/workflows/diagnose-cloudflare-secret.yml
+- تغییرات:
+  - حذف کد تکراری Python
+  - تبدیل به تابع مشترک `diagnose_secret`
+  - بررسی هر دو Secret (API_TOKEN و ACCOUNT_ID) با یک کد یکسان
+  - عدم ساخت فایل اضافی
+- Commit: 8f63557
+- بررسی git diff --check: موفق
+- Push به GitHub: موفق
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- وضعیت: بسته و تأییدشده
