@@ -24,3 +24,27 @@
 ### نتیجه
 
 نتیجه نهایی پس از تطبیق شواهد و بررسی مستندات ثبت خواهد شد.
+
+---
+
+## پرونده P-006
+
+- شناسه پرونده: P-006
+- عنوان: غیرفعال‌سازی اجرای خودکار Deploy
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- فایل تغییرکرده: .github/workflows/deploy.yml
+- تغییر: جایگزینی on.push با on.workflow_dispatch
+- Commit: 23174a6
+- نتیجه git diff --check: بدون خطا
+- وضعیت Git پس از Commit: پاک
+- Push به GitHub: موفق
+- Triggerهای بررسی‌شده:
+  - deploy.yml: workflow_dispatch
+  - diagnose-cloudflare-secret.yml: workflow_dispatch
+  - migrate-staging.yml: workflow_dispatch
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- اصلاح workingDirectory: انجام نشده
+- ارتقای Node.js به نسخه 22: انجام نشده
+- مدت کار: در شواهد موجود ثبت نشده
+- وضعیت: تغییر فنی ثبت و Push شده؛ مستندسازی در حال تکمیل
