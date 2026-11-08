@@ -288,3 +288,20 @@ Nejat Bede — Project Handover & Development Log
 - اجرای Migration: انجام نشده
 - اصلاح workingDirectory و Node.js: باقی‌مانده برای P-008
 - وضعیت: تغییر فنی ثبت و منتشر شده؛ مستندسازی در حال تکمیل
+
+---
+
+## پرونده P-008
+
+- شناسه پرونده: P-008
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- موضوع: ارتقای Node.js به 22 و افزودن workingDirectory
+- فایل تغییرکرده: .github/workflows/deploy.yml
+- تغییر اول: node-version از 20 به 22
+- تغییر دوم: افزودن workingDirectory: worker
+- Commit: b9b58ba
+- بررسی YAML: موفق
+- بررسی git diff --check: موفق
+- Push به GitHub: موفق
+- Deploy واقعی: اجرا نشده
+- وضعیت: بسته و تأییدشده

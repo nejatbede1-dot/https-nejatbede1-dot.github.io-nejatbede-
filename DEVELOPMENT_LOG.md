@@ -44,7 +44,26 @@
   - migrate-staging.yml: workflow_dispatch
 - Deploy واقعی: اجرا نشده
 - Migration واقعی: اجرا نشده
-- اصلاح workingDirectory: انجام نشده
-- ارتقای Node.js به نسخه 22: انجام نشده
+- اصلاح workingDirectory: تکمیل‌شده در P-008 (Commit: b9b58ba)
+- ارتقای Node.js به نسخه 22: تکمیل‌شده در P-008 (Commit: b9b58ba)
 - مدت کار: در شواهد موجود ثبت نشده
 - وضعیت: تغییر فنی ثبت و Push شده؛ مستندسازی در حال تکمیل
+
+---
+
+## پرونده P-008: ارتقا Node.js به 22 و افزودن workingDirectory
+
+- شناسه پرونده: P-008
+- عنوان: ارتقا Node.js به 22 و افزودن workingDirectory به deploy.yml
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- فایل تغییرکرده: .github/workflows/deploy.yml
+- تغییرات:
+  - node-version: از "20" به "22"
+  - workingDirectory: worker (در بخش with: wrangler-action)
+- Commit: b9b58ba
+- نتیجه git diff --check: بدون خطا
+- وضعیت Git پس از Commit: پاک
+- Push به GitHub: موفق
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- وضعیت: بسته و تأییدشده
