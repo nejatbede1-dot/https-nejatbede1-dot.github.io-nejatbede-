@@ -1,9 +1,18 @@
 name: Deploy to Cloudflare Workers
-on:                                     workflow_dispatch:
-permissions:                            contents: read
-jobs:                                   deploy:
-    runs-on: ubuntu-latest
 
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nejat-bede-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,12 +28,16 @@ jobs:                                   deploy:
       - name: Verify Wrangler
         run: npx --no-install wrangler --version
 
-      - name: Validate Production Configuration
+      - name: Validate Production Configuration (Dry Run)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          npx --no-install wrangler deploy \
-            --dry-run \
-            --config worker/wrangler.toml \
-            --log-level debug
+          npx --no-install wrangler deploy --dry-run --config worker/wrangler.toml --log-level debug
+
+      - name: Deploy to Production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --no-install wrangler deploy --config worker/wrangler.toml
