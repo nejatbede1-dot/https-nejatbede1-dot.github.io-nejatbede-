@@ -16,4 +16,4 @@ database_id = "82e98eeb-2e2f-4fc8-87ff-0cea7664e5dc"
 [assets]
 directory = "../public"
 binding = "ASSETS"
-run_worker_first = ["/api/*"]
+run_worker_first = true
