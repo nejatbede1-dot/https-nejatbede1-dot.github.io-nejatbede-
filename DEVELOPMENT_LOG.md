@@ -110,3 +110,52 @@
 - Created branch `codespace/ai-command-center`.
 - Defined AI roles and architecture in README_Ali.md.
 - Next: Setup GitHub Codespaces and install VritraAI.
+
+---
+
+## گزارش عملیاتی: بررسی AI Command Center و Git
+
+- تاریخ و زمان: 2026-11-12 00:18:17 +0330
+- وضعیت: بررسی انجام‌شده؛ پرونده هنوز باز است.
+- شاخه محلی: codespace/ai-command-center
+
+### شواهد Git
+- HEAD: fd25b1d
+- Commit قبلی: f4764b6
+- ریموت origin به مخزن دیگری با نام https-nejatbede1-dot.github.io-nejatbede- متصل است.
+- شاخه‌های ریموت: main و fix/deploy-compatibility-date
+- شاخه فعلی روی ریموت پیدا نشد.
+- دو Commit مستنداتی در مقایسه با origin/main مشاهده شدند.
+- وضعیت فایل‌های ثبت‌نشده: deploy.sh، meta.json، upload.zip، worker.js
+
+### شواهد فایل‌ها
+- deploy.sh: اسکریپت Bash
+- meta.json: تنظیمات Worker و Bindingها
+- upload.zip: شامل worker/index.js و worker/wrangler.toml
+- worker.js: فایل JavaScript
+- SHA-256 فایل worker/index.js داخل ZIP:
+  172151f19736cb8756a84d39cbd96b1d3a14400fb8eaa08539f8f79f199f952f
+- SHA-256 فایل worker.js:
+  172151f19736cb8756a84d39cbd96b1d3a14400fb8eaa08539f8f79f199f952f
+- نتیجه: تطابق کامل محتوای دو فایل تأیید شد.
+
+### یافته امنیتی
+مقدار CURSOR_SECRET در meta.json و deploy.sh به‌صورت متن ساده مشاهده شد. مقدار آن عمداً در مستندات تکرار نشده است. تعویض مقدار و انتقال به Worker Secret پیش از هرگونه Deploy الزامی است.
+
+### محدودیت و تصمیم عملیاتی
+- چهار فایل ثبت‌نشده هنوز Add یا Commit نشده‌اند.
+- Push انجام نشده است.
+- Merge انجام نشده است.
+- Deploy انجام نشده است.
+- ریموت origin هنوز اصلاح نشده است.
+- هیچ فایلی حذف یا جابه‌جا نشده است.
+
+### اقدامات بعدی
+1. تأیید مقصد صحیح مخزن GitHub.
+2. مشخص‌شدن منشأ چهار فایل.
+3. رفع مسئله امنیتی Secret.
+4. بررسی نهایی ساختار انتشار.
+5. انتشار شاخه مستقل پس از تأیید.
+
+### نتیجه
+بررسی اولیه تکمیل شد؛ اما پرونده انتشار و رفع امنیت هنوز باز است.

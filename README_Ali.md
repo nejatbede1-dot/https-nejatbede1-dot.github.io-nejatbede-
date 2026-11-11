@@ -362,3 +362,36 @@ Nejat Bede — Project Handover & Development Log
 - Role: Analyst / Reviewer / Architect
 - Location: Chat interface (Termux integration)
 - Output: Suggestions, Architecture, Guidance
+
+---
+
+## گزارش بررسی AI Command Center و وضعیت Git
+
+- زمان ثبت: 2026-11-12 00:18:17 +0330
+- شاخه محلی: codespace/ai-command-center
+- Commit اول: f4764b6
+- Commit دوم: fd25b1d
+- وضعیت: بررسی انجام شد؛ انتشار هنوز انجام نشده است.
+
+### نتایج تأییدشده
+- ریموت origin به مخزن https-nejatbede1-dot.github.io-nejatbede- متصل است.
+- شاخه‌های ریموت: main و fix/deploy-compatibility-date
+- شاخه codespace/ai-command-center در ریموت موجود نیست.
+- دو Commit مستنداتی شامل README_Ali.md و DEVELOPMENT_LOG.md هستند.
+- چهار فایل deploy.sh، meta.json، upload.zip و worker.js ثبت‌نشده هستند.
+- فایل worker/index.js داخل ZIP و worker.js ریشه از نظر SHA-256 یکسان هستند.
+- مسیر worker/index.js در deploy.sh با مسیر داخل ZIP مطابقت دارد.
+
+### ملاحظات امنیتی و عملیاتی
+- مقدار CURSOR_SECRET در فایل‌های meta.json و deploy.sh به‌صورت متن ساده مشاهده شد.
+- این مقدار باید افشاشده فرض شود و پیش از Deploy تعویض شود.
+- Secret جدید باید به‌صورت Worker Secret ذخیره شود، نه plain_text binding.
+- فایل‌های ثبت‌نشده بدون بررسی بیشتر نباید وارد Commit شوند.
+- هیچ Deploy، Push یا Merge در این مرحله انجام نشده است.
+
+### اقدامات باقی‌مانده
+1. تأیید مخزن صحیح GitHub.
+2. بررسی منشأ چهار فایل ثبت‌نشده.
+3. تعویض و ایمن‌سازی CURSOR_SECRET.
+4. تعیین تکلیف فایل‌های موقت و عملیاتی.
+5. انتشار مستقل شاخه AI Command Center پس از تأیید امنیت و مقصد.
