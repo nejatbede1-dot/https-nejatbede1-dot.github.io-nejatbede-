@@ -1,7 +1,112 @@
-# Development Log
+# DEVELOPMENT LOG — Nejat Bede
 
-## 2026-11-11
-- Authenticated GitHub CLI in Termux.
+## پرونده P-005
+
+- شناسه پرونده: P-005
+- عنوان: بررسی ساختاری Migration و اسکریپت‌های استقرار
+- نوع فعالیت: بررسی ساختاری و مستندسازی
+- محدوده: فقط بررسی ساختاری
+- اجرای Migration واقعی: انجام نشده
+- استقرار عملیاتی: انجام نشده
+- وضعیت: بسته و تأییدشده ـ صرفاً بررسی ساختاری
+
+### محدوده بررسی
+
+- 24 فایل SQL از 0001 تا 0024
+- migrate-staging.yml
+- اسکریپت‌های Staging و Production
+- preflight-production.mjs
+
+### محدودیت‌ها
+
+هیچ Migration واقعی یا استقرار عملیاتی در این پرونده اجرا یا تأیید نمی‌شود.
+
+### نتیجه
+
+نتیجه نهایی پس از تطبیق شواهد و بررسی مستندات ثبت خواهد شد.
+
+---
+
+## پرونده P-006
+
+- شناسه پرونده: P-006
+- عنوان: غیرفعال‌سازی اجرای خودکار Deploy
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- فایل تغییرکرده: .github/workflows/deploy.yml
+- تغییر: جایگزینی on.push با on.workflow_dispatch
+- Commit: 23174a6
+- نتیجه git diff --check: بدون خطا
+- وضعیت Git پس از Commit: پاک
+- Push به GitHub: موفق
+- Triggerهای بررسی‌شده:
+  - deploy.yml: workflow_dispatch
+  - diagnose-cloudflare-secret.yml: workflow_dispatch
+  - migrate-staging.yml: workflow_dispatch
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- اصلاح workingDirectory: تکمیل‌شده در P-008 (Commit: b9b58ba)
+- ارتقای Node.js به نسخه 22: تکمیل‌شده در P-008 (Commit: b9b58ba)
+- مدت کار: در شواهد موجود ثبت نشده
+- وضعیت: تغییر فنی ثبت و Push شده؛ مستندسازی در حال تکمیل
+
+---
+
+## پرونده P-008: ارتقا Node.js به 22 و افزودن workingDirectory
+
+- شناسه پرونده: P-008
+- عنوان: ارتقا Node.js به 22 و افزودن workingDirectory به deploy.yml
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- فایل تغییرکرده: .github/workflows/deploy.yml
+- تغییرات:
+  - node-version: از "20" به "22"
+  - workingDirectory: worker (در بخش with: wrangler-action)
+- Commit: b9b58ba
+- نتیجه git diff --check: بدون خطا
+- وضعیت Git پس از Commit: پاک
+- Push به GitHub: موفق
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- وضعیت: بسته و تأییدشده
+
+---
+
+## پرونده P-009: بهینه‌سازی Workflow تشخیصی Secretها
+
+- شناسه پرونده: P-009
+- عنوان: بهینه‌سازی diagnose-cloudflare-secret.yml با تابع مشترک
+- تاریخ: ۸ نوامبر ۲۰۲۶
+- فایل تغییرکرده: .github/workflows/diagnose-cloudflare-secret.yml
+- تغییرات:
+  - حذف کد تکراری Python
+  - تبدیل به تابع مشترک `diagnose_secret`
+  - بررسی هر دو Secret (API_TOKEN و ACCOUNT_ID) با یک کد یکسان
+  - عدم ساخت فایل اضافی
+- Commit: 8f63557
+- بررسی git diff --check: موفق
+- Push به GitHub: موفق
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- وضعیت: بسته و تأییدشده
+
+---
+
+## پرونده P-010: ایجاد Secretها و اجرای موفق Workflow تشخیصی
+
+- شناسه پرونده: P-010
+- عنوان: ایجاد Secretهای Cloudflare و اجرای موفق Workflow تشخیصی
+- تاریخ: ۹ نوامبر ۲۰۲۶
+- اقدامات انجام‌شده:
+  - کشف خالی بودن Secretها در گیت‌هاب (Byte Length: 0)
+  - ایجاد CLOUDFLARE_ACCOUNT_ID در Repository secrets
+  - ایجاد CLOUDFLARE_API_TOKEN در Repository secrets
+  - اصلاح YAML با استفاده از heredoc (<<'PY')
+- Commit: 2546d31
+- اجرای Workflow: #8 (Success, 7s)
+- Deploy واقعی: اجرا نشده
+- Migration واقعی: اجرا نشده
+- وضعیت: بسته و تأییدشده
+
+## 2026-11-11 - AI Command Center
 - Created branch `codespace/ai-command-center`.
-- Defined AI roles and architecture (README_Ali.md).
+- Defined AI roles and architecture in README_Ali.md.
 - Next: Setup GitHub Codespaces and install VritraAI.
